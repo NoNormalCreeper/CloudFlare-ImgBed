@@ -246,7 +246,7 @@ async function uploadFileToCloudflareR2(env, formdata, fullId, metadata, returnL
 
     // 成功上传，将文件ID返回给客户端
     return new Response(
-        JSON.stringify([{ 'src': `${returnLink}` }]), 
+        JSON.stringify({ 'src': `${returnLink}` }), 
         {
             status: 200,
             headers: { 'Content-Type': 'application/json' }
