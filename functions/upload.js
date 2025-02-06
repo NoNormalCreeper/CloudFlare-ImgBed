@@ -154,6 +154,7 @@ export async function onRequestPost(context) {  // Contents of context object
     } else {
         returnLink = `/file/${fullId}`;
     }
+    returnLink = encodeURIComponent(returnLink);
 
     // 清除CDN缓存
     const cdnUrl = `https://${url.hostname}/file/${fullId}`;
