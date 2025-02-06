@@ -150,11 +150,10 @@ export async function onRequestPost(context) {  // Contents of context object
     const returnFormat = url.searchParams.get('returnFormat') || 'default';
     let returnLink = '';
     if (returnFormat === 'full') {
-        returnLink = `${url.origin}/file/${fullId}`;
+        returnLink = `${url.origin}/file/${encodeURIComponent(fullId)}`;
     } else {
-        returnLink = `/file/${fullId}`;
+        returnLink = `/file/${encodeURIComponent(fullId)}`;
     }
-    returnLink = encodeURIComponent(returnLink);
 
     // 清除CDN缓存
     const cdnUrl = `https://${url.hostname}/file/${fullId}`;
